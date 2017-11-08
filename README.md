@@ -21,6 +21,18 @@ All included properties and methods.
 | ------------- | ------------- | ----------- |----------- |
 | new InputLayer    | Class  |  | Initiate a new Input object. |
 | InputLayer.wrap    | Method  |  `background, text`  | Wrap input object around two layers. |
+| InputLayer.value    | String  |   | Text value of input layer. |
+| InputLayer.focusColor    | Color  |   | Color of input layer on focus. |
+| InputLayer.multiLine    | Boolean  |   | Single or multi-line input field. |
+| onEnterKey    | Event  |  | On return key press. |
+| onSpaceKey    | Event  |  | On space key press. |
+| onBackSpaceKey    | Event  |  | On backspace key press. |
+| onCapsSpaceKey    | Event  |  | On caps space key press. |
+| onShiftKey    | Event  |  | On shift key press. |
+| onInputValueChange    | Event  |  | On input key press. |
+| onInputValueChange    | Event  |  | On input focus. |
+| onInputBlur    | Event  |  | On input blur. |
+
 
 <br>
 
