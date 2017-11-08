@@ -5,10 +5,10 @@
 </h1>
 <br>
 <p align="center">  
-  <img src="https://d.pr/i/osJvmF+" width="840" alt="banner">
+  <img src="https://d.pr/free/i/A4LMS2+" width="840" alt="banner">
   <br>
   <h6 align="center">INTRODUCTION</h6>
-  <p align="center">From music player mocks in <a href="https://framer.com/features/design?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Design</a>, to fully functional audio players in <a href="https://framer.com/features/code?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Code</a>. A <strong>Framer</strong> module that allows you to design audio interfaces for iOS, Android, Desktop and more—and then bring them to life. From play buttons to volume sliders.</p>
+  <p align="center">From input fields in <a href="https://framer.com/features/design?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Design</a>, to fully functional ones in <a href="https://framer.com/features/code?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Code</a>. A <strong>Framer</strong> module that allows you to create input fields in Code and Design, including a keyboard simulator.</p>
  <p align="center"><a href="https://youtu.be/KCeOa9F3L9A">Watch the video.</a></p>
 </p>
 <br>
@@ -19,31 +19,18 @@ All included properties and methods.
 
 | Properties    | Type          | Parameters | Description |
 | ------------- | ------------- | ----------- |----------- |
-| Audio.wrap    | Method  |  `play, pause`  | Wrap audio object around 2 layers. |
-| audio   | String  |   | Source of the audio file. |
-| showProgress   | Method  | `slider` | Use slider to manipulate audio progress. |
-| showVolume  | Method  | `slider` | Use slider to manipulate audio volume. |
-| showTime | Method  | `time` | Display current time with a TextLayer. |
-| showTimeLeft | Method  | `timeLeft` | Display time left with a TextLayer. |
-
-Also included: the `Slider.wrap` method.
-
-| Properties    | Type          | Parameters | Description |
-| ------------- | ------------- | ----------- |----------- |
-| Slider.wrap    | Method  |  `background, fill, knob`  | Wrap slider logic around 3 layers. |
-
+| new InputLayer    | Class  |  | Initiate a new Input object. |
+| InputLayer.wrap    | Method  |  `background, text`  | Wrap input object around two layers. |
 
 <br>
 
 ## Get Started
-[Download the example file](https://framer.cloud/BsbYC) or read on for step-by-step instructions.
-
-First, grab the `audio.coffee` file and place it within the `/modules` folder (located within your `.framer` folder).
-Then, to include the module, `require` both the `Audio` and `Slider` classes:
+First, grab the `input.coffee` file and place it within the `/modules` folder (located within your `.framer` folder).
+Then, to include the module, `require` the `Input` class:
 
 ```
 # Include the module
-{Audio, Slider} = require "audio"
+{InputLayer} = require "input"
 ```
 
 Next, you’ll likely want to define two basic states in Design: a *play* and *pause* state. I’ve named these layers `play` and `pause` respectively, and made them targetable in Code. Next, I’ll wrap the `Audio` object around these layers, and store the entire object in a variable named `audio`.
@@ -88,22 +75,6 @@ audio.showProgress(slider)
 # Show and edit audio volume 
 audio.showVolume(slider)
 ```
-
----
-
-## Time & Time Left
-The module includes two methods that will automatically update the `text` contents of a `TextLayer` to reflect either the current track time, and the time left. These will automatically update—also when a progress slider is being edited.
-
-- `showTime(layer)` — show current time with a text layer.
-- `showTimeLeft(layer)` — show current time left with a text layer.
-
-```
-# Show the current time and time left
-audio.showTime(time)
-audio.showTimeLeft(timeLeft)
-```
-
-Please note that these methods only work with **TextLayers** from either Design or Code.
 
 ---
 
