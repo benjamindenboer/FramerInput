@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://d.pr/i/bRqvKY+" width="160" alt="icon"><br>
+  <img src="https://d.pr/free/i/Vz8Icl+" width="160" alt="icon"><br>
   Framer Input<br>
   <br>
 </h1>
