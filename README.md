@@ -66,6 +66,22 @@ input = new InputLayer
 
 This will create a functional input field, with its default placeholder. Note that the `InputLayer` class is based on the `TextLayer` class, and thus will inherit its properties and methods as well.
 
+```
+# Set placeholder
+input = new InputLayer
+	text: "Placeholder"
+```
+
+The `Input` class has its own `onValueChange` method, too. To use the text contents as you’re typing, simply reference the `value` property in combination with the event.
+
+```
+# See input value
+input.onValueChange ->
+	print input.value 
+```
+
+
+
 ---
 
 ## Examples
