@@ -17,21 +17,21 @@
 All included properties and methods.
 
 
-| Properties    | Type          | Parameters | Description |
-| ------------- | ------------- | ----------- |----------- |
-| new InputLayer    | Class  |  | Initiate a new Input object. |
-| InputLayer.wrap    | Method  |  `background, text`  | Wrap input object around two layers. |
-| InputLayer.value    | String  |   | Text value of input layer. |
-| InputLayer.focusColor    | Color  |   | Color of input layer on focus. |
-| InputLayer.multiLine    | Boolean  |   | Single or multi-line input field. |
-| onEnterKey    | Event  |  | On return key press. |
-| onSpaceKey    | Event  |  | On space key press. |
-| onBackSpaceKey    | Event  |  | On backspace key press. |
-| onCapsLockKey    | Event  |  | On caps space key press. |
-| onShiftKey    | Event  |  | On shift key press. |
-| onInputValueChange    | Event  |  | On input key press. |
-| onInputFocus    | Event  |  | On input focus. |
-| onInputBlur    | Event  |  | On input blur. |
+| Properties    | Type          | Description |
+| ------------- | ------------- |----------- |
+| new InputLayer    | Class  | Initiate a new Input object. |
+| InputLayer.wrap    | Method  |Wrap input object around two layers. |
+| InputLayer.value    | String  |  Text value of input layer. |
+| InputLayer.focusColor    | Color  | Color of input layer on focus. |
+| InputLayer.multiLine    | Boolean  | Single or multi-line input field. |
+| InputLayer.onEnterKey    | Event  | On return key press. |
+| InputLayer.onSpaceKey    | Event  | On space key press. |
+| InputLayer.onBackSpaceKey    | Event | On backspace key press. |
+| InputLayer.onCapsLockKey    | Event | On caps space key press. |
+| InputLayer.onShiftKey    | Event  |  On shift key press. |
+| InputLayer.onInputValueChange    | Event  | On input key press. |
+| InputLayer.onInputFocus    | Event  | On input focus. |
+| InputLayer.onInputBlur    | Event  | On input blur. |
 
 
 <br>
