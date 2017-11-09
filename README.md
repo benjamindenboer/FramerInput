@@ -27,10 +27,10 @@ All included properties and methods.
 | onEnterKey    | Event  |  | On return key press. |
 | onSpaceKey    | Event  |  | On space key press. |
 | onBackSpaceKey    | Event  |  | On backspace key press. |
-| onCapsSpaceKey    | Event  |  | On caps space key press. |
+| onCapsLockKey    | Event  |  | On caps space key press. |
 | onShiftKey    | Event  |  | On shift key press. |
 | onInputValueChange    | Event  |  | On input key press. |
-| onInputValueChange    | Event  |  | On input focus. |
+| onInputFocus    | Event  |  | On input focus. |
 | onInputBlur    | Event  |  | On input blur. |
 
 
