@@ -40,15 +40,13 @@ All included properties and methods.
 First, grab the `input.coffee` file and place it within the `/modules` folder (located within your `.framer` folder).
 Then, to include the module, `require` the `Input` class:
 
-```
-# Include the module
+```javascript
 {InputLayer} = require "input"
 ```
 
 Next, you’ll likely want to define two basic states in Design: a *play* and *pause* state. I’ve named these layers `play` and `pause` respectively, and made them targetable in Code. Next, I’ll wrap the `Audio` object around these layers, and store the entire object in a variable named `audio`.
 
-```
-# Wrap AudioLayer
+```javascript
 audio = Audio.wrap(play, pause)
 audio.audio = "audio.mp3"
 ```
