@@ -72,6 +72,15 @@ input = new InputLayer
 	text: "Placeholder"
 ```
 
+To style the placeholder text, you can use all of the [TextLayer](https://framer.com/docs/?utm_campaign=framer_input_benjamin#text.textlayer) properties.
+
+```
+# Change placeholder styling
+input.fontSize = 40
+input.fontWeight = 600
+input.color = "red"
+```
+
 The `Input` class has its own `onValueChange` method, too. To use the text contents as you’re typing, simply reference the `value` property in combination with the event.
 
 ```
