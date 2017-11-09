@@ -36,7 +36,7 @@ All included properties and methods.
 
 <br>
 
-## Get Started
+## Design Guide
 First, grab the `input.coffee` file and place it within the `/modules` folder (located within your `.framer` folder).
 Then, to include the module, `require` the `Input` class:
 
@@ -55,51 +55,26 @@ audio.audio = "audio.mp3"
 
 The layers are automatically made part of the same object—and the play and pause interactions are functional by default. 
 
----
 
-## Volume & Progress Sliders
-If you’d like to add volume or progress sliders, you’ll either need to define a [SliderComponent in Code](https://framer.com/docs/?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin#slider.slidercomponent), or use the included `Slider.wrap` method. 
-
-```
-# Slider via Code
-slider = new SliderComponent
-
-# Slider via Design
-slider = Slider.wrap(bg, fill, knob)
-```
-
-The `Slider.wrap` method takes three parameters:
-- `background` — The background layer of the slider.
-- `fill` — The fill layer of the slider.
-- `knob` – The knob layer of the slider.
-
-All of these can be styled completely in the design. The method wraps a component around these 3 layers to handle all of the sliding functionality for you.
-
-Once you have set-up a slider, you can make it reflect the **progress** or the **volume**.
-
-- `showProgress(layer)` — adjust audio track progress.
-- `showVolume(layer)` — adjust audio track volume.
+## Code Guide
+New `InputLayers` can be initiated in Code, too.
 
 ```
-# Show and edit audio progress 
-audio.showProgress(slider)
-
-# Show and edit audio volume 
-audio.showVolume(slider)
+# Create Input
+input = new InputLayer
 ```
+
+This will create a functional input field, with its default placeholder. Note that the `InputLayer` class is based on the `TextLayer` class, and thus will inherit its properties and methods as well.
 
 ---
 
 ## Examples
 - **[Play, Pause](https://framer.cloud/BsbYC)**. Two artboards, one Audio object.
-- **[Slider Wrapping](https://framer.cloud/BlHxd).** From 3 layers in Design to an interactive slider in Code.
-- **[Audio Player](https://framer.cloud/pHMBF)**. With current time, duration and progress sliding.
 
 ## More Resources
-- [W3S Audio DOM Reference](https://www.w3schools.com/tags/ref_av_dom.asp).
-- [MDN Audio Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio).
-- [MDN Media Events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events).
-
+- [MDN Keyboard Event Reference](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+- [MDN Key Property Reference](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key).
+- [HTML DOM Events Reference](https://www.w3schools.com/jsref/dom_obj_event.asp).
 ---
 
 ## Contact
