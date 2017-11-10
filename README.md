@@ -44,14 +44,17 @@ Then, to include the module, `require` the `Input` class:
 {InputLayer} = require "input"
 ```
 
-Next, you’ll likely want to define two basic states in Design: a *play* and *pause* state. I’ve named these layers `play` and `pause` respectively, and made them targetable in Code. Next, I’ll wrap the `Audio` object around these layers, and store the entire object in a variable named `audio`.
+Once you have created a simple input field in Design, you can make the wrapper layer (`background`) and the placeholder copy (`text`) targetable, and wrap them in Code.
+
+The `InputLayer.wrap` method takes two parameters:
+- `background` — The background layer of the input field.
+- `text` — The placeholder text layer of the input field.
 
 ```javascript
-audio = Audio.wrap(play, pause)
-audio.audio = "audio.mp3"
+input = InputLayer.wrap(background, text)
 ```
 
-The layers are automatically made part of the same object—and the play and pause interactions are functional by default. 
+Now, the input field is functional. It automatically sets a `focusColor` for you (changes the color of the text), but this is completely customizable.
 
 
 ## Code Guide
