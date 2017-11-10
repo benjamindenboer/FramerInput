@@ -54,7 +54,12 @@ The `InputLayer.wrap` method takes two parameters:
 input = InputLayer.wrap(background, text)
 ```
 
-Now, the input field is functional. It automatically sets a `focusColor` for you (changes the color of the text), but this is completely customizable.
+Now, the input field is functional. It automatically sets a `focusColor` for you (changes the color of the text), but this is completely customizable. The `input` object has its own `onValueChange` method. To use the text contents as you’re typing, simply reference the `value` property in combination with the event.
+
+```javascript
+input.onValueChange ->
+	print input.value 
+```
 
 
 ## Code Guide
