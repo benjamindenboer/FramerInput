@@ -111,7 +111,7 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.onkeydown = (e) =>
 			currentValue = @value
 
-			# If caps lock key is pressed
+			# If caps lock key is pressed down
 			if e.which is 20
 				@emit(Events.CapsLockKey, event)
 
@@ -136,6 +136,10 @@ class exports.InputLayer extends TextLayer
 			# If space key is pressed
 			if e.which is 32
 				@emit(Events.SpaceKey, event)
+
+			# If caps lock key is pressed up
+			if e.which is 20
+				@emit(Events.CapsLockKey, event)
 
 	_setPlaceholder: (text) =>
 		@_inputElement.placeholder = text
@@ -185,12 +189,17 @@ class exports.InputLayer extends TextLayer
 
 		# Remove original layer
 		layer.visible = false
+		@_elementHTML.children[0].textContent = ""
 
 		# Convert position to padding
-		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / Utils.devicePixelRatio()}px"
-		@_inputElement.style.paddingTop = "#{layer.y * 2 / Utils.devicePixelRatio()}px"
-		@_inputElement.style.paddingLeft = "#{layer.x * 2 / Utils.devicePixelRatio()}px"
-		@_inputElement.style.width = "#{((@_background.width) - layer.x * 2) * 2 / Utils.devicePixelRatio()}px"
+		if Utils.isDesktop()
+			dpr = Utils.devicePixelRatio()
+		else
+			dpr = 1
+		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
+		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
+		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
+		@_inputElement.style.width = "#{((@_background.width) - layer.x * 2) * 2 / dpr}px"
 
 		return @_placeholder
 
