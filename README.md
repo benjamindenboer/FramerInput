@@ -61,6 +61,12 @@ input.onValueChange ->
 	print input.value 
 ```
 
+The `wrap` method allows you to pass in optional properties, too. For instance, if you’d like to create a `multiLine` input field (also known as a `textarea`), you can simply pass it along:
+
+```javascript
+input = InputLayer.wrap(bg, text, multiLine: true)
+```
+
 
 ## Code Guide
 New `InputLayers` can be initiated in Code, too.
