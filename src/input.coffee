@@ -202,8 +202,6 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
 		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
 		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
-		@_inputElement.style.width = "#{((@_background.width) - layer.x * 2) * 2 / dpr}px"
-		@_inputElement.style.height = "#{@_background.height * 2 / dpr}px"
 
 		return @_placeholder
 
