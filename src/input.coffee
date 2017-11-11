@@ -31,6 +31,7 @@ class exports.InputLayer extends TextLayer
 		# Globals
 		@_background = undefined
 		@_placeholder = undefined
+		@_isDesignLayer = false
 
 		# Layer containing input element
 		@input = new Layer
@@ -40,20 +41,12 @@ class exports.InputLayer extends TextLayer
 			height: @height
 			parent: @
 
+		# Text area
 		if @multiLine
 			@_inputElement = document.createElement("textarea")
 
-			# Add top padding to multi-line text area inputs
-			@padding.top = 20
-
-		# @on "change:width", =>
-		# 	@_inputElement.style.width = "#{@input.width}px}"
-
-		@on "change:padding", =>
-			@_inputElement.style.paddingTop = "#{@padding.top}px"
-			@_inputElement.style.paddingRight = "#{@padding.bottom}px"
-			@_inputElement.style.paddingBottom = "#{@padding.right}px"
-			@_inputElement.style.paddingLeft = "#{@padding.left}px"
+			if not @_isDesignLayer
+				@padding.top = 20
 
 		# Append element
 		@input._element.appendChild(@_inputElement)
@@ -77,6 +70,12 @@ class exports.InputLayer extends TextLayer
 
 				# Reset textLayer contents
 				@_elementHTML.children[0].textContent = ""
+
+		@on "change:padding", =>
+			@_inputElement.style.paddingTop = "#{@padding.top}px"
+			@_inputElement.style.paddingRight = "#{@padding.bottom}px"
+			@_inputElement.style.paddingBottom = "#{@padding.right}px"
+			@_inputElement.style.paddingLeft = "#{@padding.left}px"
 
 		# Set default placeholder
 		@_setPlaceholder(@text)
@@ -154,21 +153,23 @@ class exports.InputLayer extends TextLayer
 		else
 			dpr = 1
 
-		@_inputElement.style.fontFamily = layer.fontFamily
-		@_inputElement.style.fontSize = "#{layer.fontSize / dpr}px"
+		if not @_isDesignLayer
+			@_inputElement.style.fontFamily = layer.fontFamily
+			@_inputElement.style.fontSize = "#{layer.fontSize / dpr}px"
+			@_inputElement.style.fontWeight = layer.fontWeight ? "normal"
+			@_inputElement.style.paddingTop = "#{layer.padding.top * 2 / dpr}px"
+			@_inputElement.style.paddingRight = "#{layer.padding.bottom * 2 / dpr}px"
+			@_inputElement.style.paddingBottom = "#{layer.padding.right * 2 / dpr}px"
+			@_inputElement.style.paddingLeft = "#{layer.padding.left * 2 / dpr}px"
 
-		@_inputElement.style.fontWeight = layer.fontWeight ? "normal"
-		@_inputElement.style.outline = "none"
-		@_inputElement.style.backgroundColor = "transparent"
 		@_inputElement.style.width = "#{((layer.width - layer.padding.left * 2) * 2 / dpr)}px"
 		@_inputElement.style.height = "#{layer.height * 2 / dpr}px"
+
+		@_inputElement.style.outline = "none"
+		@_inputElement.style.backgroundColor = "transparent"
 		@_inputElement.style.cursor = "auto"
 		@_inputElement.style.webkitAppearance = "none"
 		@_inputElement.style.resize = "none"
-		@_inputElement.style.paddingTop = "#{layer.padding.top * 2 / dpr}px"
-		@_inputElement.style.paddingRight = "#{layer.padding.bottom * 2 / dpr}px"
-		@_inputElement.style.paddingBottom = "#{layer.padding.right * 2 / dpr}px"
-		@_inputElement.style.paddingLeft = "#{layer.padding.left * 2 / dpr}px"
 		@_inputElement.style.overflow = "hidden"
 
 	addBackgroundLayer: (layer) ->
@@ -181,6 +182,7 @@ class exports.InputLayer extends TextLayer
 		return @_background
 
 	addPlaceHolderLayer: (layer) ->
+		@_isDesignLayer = true
 		@_inputElement.className = "input" + layer.id
 
 		@_setPlaceholder(layer.text)
@@ -196,10 +198,12 @@ class exports.InputLayer extends TextLayer
 			dpr = Utils.devicePixelRatio()
 		else
 			dpr = 1
+
 		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
 		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
 		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
 		@_inputElement.style.width = "#{((@_background.width) - layer.x * 2) * 2 / dpr}px"
+		@_inputElement.style.height = "#{@_background.height * 2 / dpr}px"
 
 		return @_placeholder
 
@@ -248,6 +252,5 @@ wrapInput = (instance, background, placeholder) ->
 
 	input.addBackgroundLayer(background)
 	input.addPlaceHolderLayer(placeholder)
-
 
 	return input
