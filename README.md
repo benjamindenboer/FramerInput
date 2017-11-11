@@ -5,7 +5,7 @@
 </h1>
 <br>
 <p align="center">  
-  <img src="https://d.pr/free/i/kmymUv+" width="800" alt="banner">
+  <img src="https://d.pr/i/kmymUv+" width="800" alt="banner">
   <br>
   <h6 align="center">INTRODUCTION</h6>
   <p align="center">From inputs in <a href="https://framer.com/features/design?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Design</a> to fully functional ones in <a href="https://framer.com/features/code?utm_source=github&utm_medium=link&utm_campaign=framer_audio_benjamin">Code</a>. A <strong>Framer</strong> module that allows you to create single-line and multi-line input fields in Code and Design. Also includes an iOS keyboard simulator.</p>
