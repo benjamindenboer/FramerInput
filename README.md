@@ -29,7 +29,7 @@ All included properties and methods.
 | InputLayer.onBackSpaceKey    | Event | On backspace key press. |
 | InputLayer.onCapsLockKey    | Event | On caps space key press. |
 | InputLayer.onShiftKey    | Event  |  On shift key press. |
-| InputLayer.onInputValueChange    | Event  | On input key press. |
+| InputLayer.onValueChange    | Event  | On input key press. |
 | InputLayer.onInputFocus    | Event  | On input focus. |
 | InputLayer.onInputBlur    | Event  | On input blur. |
 
