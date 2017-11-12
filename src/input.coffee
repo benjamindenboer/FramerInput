@@ -161,9 +161,10 @@ class exports.InputLayer extends TextLayer
 			@_inputElement.style.paddingRight = "#{layer.padding.bottom * 2 / dpr}px"
 			@_inputElement.style.paddingBottom = "#{layer.padding.right * 2 / dpr}px"
 			@_inputElement.style.paddingLeft = "#{layer.padding.left * 2 / dpr}px"
+			@_inputElement.style.width = "#{((layer.width - layer.padding.left * 2) * 2 / dpr)}px"
 
-		@_inputElement.style.width = "#{((layer.width - layer.padding.left * 2) * 2 / dpr)}px"
-		@_inputElement.style.height = "#{layer.height * 2 / dpr}px"
+			if @multiLine
+				@_inputElement.style.height = "#{layer.height * 2 / dpr}px"
 
 		@_inputElement.style.outline = "none"
 		@_inputElement.style.backgroundColor = "transparent"
@@ -182,6 +183,7 @@ class exports.InputLayer extends TextLayer
 		return @_background
 
 	addPlaceHolderLayer: (layer) ->
+
 		@_isDesignLayer = true
 		@_inputElement.className = "input" + layer.id
 
@@ -235,7 +237,6 @@ class exports.InputLayer extends TextLayer
 	onInputBlur: (cb) -> @on(Events.InputBlur, cb)
 
 wrapInput = (instance, background, placeholder) ->
-
 	if not (background instanceof Layer)
 		throw new Error("InputLayer expects a background layer.")
 
