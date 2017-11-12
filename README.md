@@ -106,6 +106,7 @@ input.onValueChange ->
 - **[Textarea in Code](https://framer.cloud/HSNYG/)**. Create and style a multi-line input field.
 - **[Input in Design](https://framer.cloud/kyABW/)**. Wrap a single input field.
 - **[Textarea in Design](https://framer.cloud/EyGbp/)**. Wrap a multi-line input field.
+- **[Chat Example](https://framer.cloud/JdeKv/).** Type and send messages.
 
 
 ## More Resources
