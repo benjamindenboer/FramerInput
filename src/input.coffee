@@ -65,6 +65,7 @@ class exports.InputLayer extends TextLayer
 		for property, value of textProperties
 
 			@on "change:#{property}", (value) =>
+				return if @_isDesignLayer
 				@_setTextProperties(@)
 				@_setPlaceholderColor(@_id, @color)
 
@@ -161,11 +162,9 @@ class exports.InputLayer extends TextLayer
 			@_inputElement.style.paddingRight = "#{layer.padding.bottom * 2 / dpr}px"
 			@_inputElement.style.paddingBottom = "#{layer.padding.right * 2 / dpr}px"
 			@_inputElement.style.paddingLeft = "#{layer.padding.left * 2 / dpr}px"
-			@_inputElement.style.width = "#{((layer.width - layer.padding.left * 2) * 2 / dpr)}px"
 
-			if @multiLine
-				@_inputElement.style.height = "#{layer.height * 2 / dpr}px"
-
+		@_inputElement.style.width = "#{((layer.width - layer.padding.left * 2) * 2 / dpr)}px"
+		@_inputElement.style.height = "#{layer.height * 2 / dpr}px"
 		@_inputElement.style.outline = "none"
 		@_inputElement.style.backgroundColor = "transparent"
 		@_inputElement.style.cursor = "auto"
@@ -204,6 +203,9 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
 		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
 		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
+
+		if @multiLine
+			@_inputElement.style.height = "#{@_background.height * 2 / dpr}px"
 
 		return @_placeholder
 
