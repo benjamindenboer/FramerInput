@@ -60,23 +60,18 @@ class exports.InputLayer extends TextLayer
 
 		# All inherited properties
 		textProperties =
-			{@text, @fontFamily, @fontSize, @lineHeight, @fontWeight, @color, @backgroundColor, @width, @height}
+			{@text, @fontFamily, @fontSize, @lineHeight, @fontWeight, @color, @backgroundColor, @width, @height, @padding}
 
 		for property, value of textProperties
 
 			@on "change:#{property}", (value) =>
+				# Reset textLayer contents
+				@_elementHTML.children[0].textContent = ""
+
 				return if @_isDesignLayer
 				@_setTextProperties(@)
 				@_setPlaceholderColor(@_id, @color)
 
-				# Reset textLayer contents
-				@_elementHTML.children[0].textContent = ""
-
-		@on "change:padding", =>
-			@_inputElement.style.paddingTop = "#{@padding.top}px"
-			@_inputElement.style.paddingRight = "#{@padding.bottom}px"
-			@_inputElement.style.paddingBottom = "#{@padding.right}px"
-			@_inputElement.style.paddingLeft = "#{@padding.left}px"
 
 		# Set default placeholder
 		@_setPlaceholder(@text)
@@ -190,6 +185,9 @@ class exports.InputLayer extends TextLayer
 		@_setTextProperties(layer)
 		@_setPlaceholderColor(layer.id, layer.color)
 
+		@on "change:color", =>
+			@_setPlaceholderColor(layer.id, @color)
+
 		# Remove original layer
 		layer.visible = false
 		@_elementHTML.children[0].textContent = ""
@@ -206,6 +204,10 @@ class exports.InputLayer extends TextLayer
 
 		if @multiLine
 			@_inputElement.style.height = "#{@_background.height * 2 / dpr}px"
+
+		@on "change:padding", =>
+			@_inputElement.style.paddingTop = "#{@padding.top * 2 / dpr}px"
+			@_inputElement.style.paddingLeft = "#{@padding.left * 2 / dpr}px"
 
 		return @_placeholder
 
