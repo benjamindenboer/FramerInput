@@ -2,7 +2,6 @@
 */*.framer/.*.html
 */*.framer/images/.gitkeep
 */*.framer/images/design/*-*
-*/*.framer/modules
 */*.framer/index.html
 */*.framer/.viewer.html
 
