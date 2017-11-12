@@ -1,0 +1,17 @@
+*/*.framer/.gitignore
+*/*.framer/.*.html
+*/*.framer/images/.gitkeep
+*/*.framer/images/design/*-*
+*/*.framer/modules
+*/*.framer/index.html
+*/*.framer/.viewer.html
+
+!*/*.framer/framer
+*/*.framer/framer/*
+# Exclude everything except these three files
+!*/*.framer/framer/config.json
+!*/*.framer/framer/design.vekter
+!*/*.framer/framer/framer.vekter.js
+!*/*.framer/framer/framer.js
+!*/*.framer/framer/framer.js.map
+!*/*.framer/framer/version
