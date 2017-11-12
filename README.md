@@ -102,7 +102,11 @@ input.onValueChange ->
 ---
 
 ## Examples
-- **[Play, Pause](https://framer.cloud/BsbYC)**. Two artboards, one Audio object.
+- **[Input in Code](https://framer.cloud/NyGvN/)**. Create and style a single input field.
+- **[Textarea in Code](https://framer.cloud/HSNYG/)**. Create and style a multi-line input field.
+- **[Input in Design](https://framer.cloud/kyABW/)**. Wrap a single input field.
+- **[Textarea in Design](https://framer.cloud/EyGbp/)**. Wrap a multi-line input field.
+
 
 ## More Resources
 - [MDN Keyboard Event Reference](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
