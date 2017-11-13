@@ -60,7 +60,7 @@ class exports.InputLayer extends TextLayer
 
 		# All inherited properties
 		textProperties =
-			{@text, @fontFamily, @fontSize, @lineHeight, @fontWeight, @color, @backgroundColor, @width, @height, @padding}
+			{@text, @fontFamily, @fontSize, @lineHeight, @fontWeight, @color, @backgroundColor, @width, @height, @padding, @parent}
 
 		for property, value of textProperties
 
