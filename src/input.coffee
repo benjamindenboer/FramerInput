@@ -249,6 +249,9 @@ wrapInput = (instance, background, placeholder) ->
 
 	input = instance
 
+	input.__framerInstanceInfo ?= {}
+	input.__framerInstanceInfo?.name = instance.constructor.name
+
 	input.frame = background.frame
 	input.parent = background.parent
 	input.index = background.index
