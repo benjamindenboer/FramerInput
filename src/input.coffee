@@ -22,9 +22,6 @@ class exports.InputLayer extends TextLayer
 			fontWeight: 300
 
 		@_inputElement = document.createElement("input")
-		@_inputElement.autocomplete = "off"
-		@_inputElement.autocorrect = "off"
-		@_inputElement.spellcheck = false
 
 		super options
 
@@ -53,6 +50,11 @@ class exports.InputLayer extends TextLayer
 
 		# Match TextLayer defaults and type properties
 		@_setTextProperties(@)
+
+		# Set attributes
+		@_inputElement.autocomplete = "off"
+		@_inputElement.autocorrect = "off"
+		@_inputElement.spellcheck = false
 
 		# The id serves to differentiate multiple input elements from one another.
 		# To allow styling the placeholder colors of seperate elements.
