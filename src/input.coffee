@@ -148,6 +148,8 @@ class exports.InputLayer extends TextLayer
 
 		if Utils.isDesktop()
 			dpr = Utils.devicePixelRatio()
+			if Framer.Device.deviceType is "fullscreen"
+				dpr = 2
 		else
 			dpr = 1
 
@@ -197,6 +199,8 @@ class exports.InputLayer extends TextLayer
 		# Convert position to padding
 		if Utils.isDesktop()
 			dpr = Utils.devicePixelRatio()
+			if Framer.Device.deviceType is "fullscreen"
+				dpr = 2
 		else
 			dpr = 1
 
