@@ -144,14 +144,25 @@ class exports.InputLayer extends TextLayer
 	_setPlaceholderColor: (id, color) ->
 		document.styleSheets[0].addRule(".input#{id}::-webkit-input-placeholder", "color: #{color}")
 
-	_setTextProperties: (layer) =>
-
+	_checkDevicePixelRatio: ->
+		ratio = (Screen.width / Framer.Device.screen.width)
 		if Utils.isDesktop()
-			dpr = Utils.devicePixelRatio()
+			if ratio < 0.5 and ratio > 0.25
+				dpr = 1 - ratio
+			else if ratio is 0.25
+				dpr = 1 - (ratio * 2)
+			else
+				dpr = Utils.devicePixelRatio()
 			if Framer.Device.deviceType is "fullscreen"
 				dpr = 2
 		else
 			dpr = 1
+
+		return dpr
+
+	_setTextProperties: (layer) =>
+
+		dpr = @_checkDevicePixelRatio()
 
 		if not @_isDesignLayer
 			@_inputElement.style.fontFamily = layer.fontFamily
@@ -170,6 +181,7 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.style.webkitAppearance = "none"
 		@_inputElement.style.resize = "none"
 		@_inputElement.style.overflow = "hidden"
+		@_inputElement.style.webkitFontSmoothing = "antialiased"
 
 	addBackgroundLayer: (layer) ->
 		@_background = layer
@@ -197,13 +209,7 @@ class exports.InputLayer extends TextLayer
 		@_elementHTML.children[0].textContent = ""
 
 		# Convert position to padding
-		if Utils.isDesktop()
-			dpr = Utils.devicePixelRatio()
-			if Framer.Device.deviceType is "fullscreen"
-				dpr = 2
-		else
-			dpr = 1
-
+		dpr = @_checkDevicePixelRatio()
 		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
 		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
 		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
