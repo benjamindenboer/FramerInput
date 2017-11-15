@@ -21,6 +21,9 @@ class exports.InputLayer extends TextLayer
 			fontSize: if Utils.isDesktop() then 40 / Utils.devicePixelRatio() else 40
 			fontWeight: 300
 
+		if options.multiLine
+			options.padding.top ?= 20
+
 		@_inputElement = document.createElement("input")
 
 		super options
@@ -41,9 +44,6 @@ class exports.InputLayer extends TextLayer
 		# Text area
 		if @multiLine
 			@_inputElement = document.createElement("textarea")
-
-			if not @_isDesignLayer
-				@padding.top = 20
 
 		# Append element
 		@input._element.appendChild(@_inputElement)
