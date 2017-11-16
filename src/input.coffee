@@ -147,25 +147,25 @@ class exports.InputLayer extends TextLayer
 	_checkDevicePixelRatio: ->
 		ratio = (Screen.width / Framer.Device.screen.width)
 		if Utils.isDesktop()
-			# 3X
+			# @3x
 			if ratio < 0.5 and ratio > 0.25
 				dpr = 1 - ratio
-			# 4X
+			# @4x
 			else if ratio is 0.25
 				dpr = 1 - (ratio * 2)
-			# 1X, 2X
+			# @1x, @2x
 			else
 				dpr = Utils.devicePixelRatio()
 			if Framer.Device.deviceType is "fullscreen"
 				dpr = 2
 		else
-			# 3X
+			# @3x
 			if ratio < 0.5 and ratio > 0.25
 				dpr = 1 - ratio
-			# 4X
+			# @4x
 			else if ratio is 0.25
 				dpr = 1 - (ratio * 2)
-			# 1X, 2X
+			# @1x, @2x
 			else if ratio is 0.5
 				dpr = 1
 
