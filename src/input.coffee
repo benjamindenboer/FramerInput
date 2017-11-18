@@ -18,13 +18,14 @@ class exports.InputLayer extends TextLayer
 			padding:
 				left: 20
 			text: "Type something..."
-			fontSize: if Utils.isDesktop() then 40 / Utils.devicePixelRatio() else 40
+			fontSize: 40
 			fontWeight: 300
 
 		if options.multiLine
 			options.padding.top ?= 20
 
 		@_inputElement = document.createElement("input")
+		@_inputElement.style.position = "absolute"
 
 		super options
 
@@ -207,6 +208,7 @@ class exports.InputLayer extends TextLayer
 
 		@_isDesignLayer = true
 		@_inputElement.className = "input" + layer.id
+		@padding = left: 0, top: 0
 
 		@_setPlaceholder(layer.text)
 		@_setTextProperties(layer)
@@ -224,6 +226,7 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.style.fontSize = "#{layer.fontSize * 2 / dpr}px"
 		@_inputElement.style.paddingTop = "#{layer.y * 2 / dpr}px"
 		@_inputElement.style.paddingLeft = "#{layer.x * 2 / dpr}px"
+		@_inputElement.style.width = "#{(@_background.width - layer.x * 2) * 2 / dpr}px"
 
 		if @multiLine
 			@_inputElement.style.height = "#{@_background.height * 2 / dpr}px"
