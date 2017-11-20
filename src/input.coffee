@@ -24,6 +24,9 @@ class exports.InputLayer extends TextLayer
 		if options.multiLine
 			options.padding.top ?= 20
 
+		if options.password
+			type = "password"
+
 		@_inputElement = document.createElement("input")
 		@_inputElement.style.position = "absolute"
 
@@ -56,6 +59,7 @@ class exports.InputLayer extends TextLayer
 		@_inputElement.autocomplete = "off"
 		@_inputElement.autocorrect = "off"
 		@_inputElement.spellcheck = false
+		@_inputElement.type = type
 
 		# The id serves to differentiate multiple input elements from one another.
 		# To allow styling the placeholder colors of seperate elements.

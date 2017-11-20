@@ -58,7 +58,7 @@ Now, the input field is functional. It automatically sets a `focusColor` for you
 
 ```javascript
 input.onValueChange ->
-	print input.value 
+    print input.value 
 ```
 
 The `wrap` method allows you to pass in optional properties, too. For instance, if you’d like to create a `multiLine` input field (also known as a `textarea`), you can simply pass it along:
@@ -67,6 +67,11 @@ The `wrap` method allows you to pass in optional properties, too. For instance, 
 input = InputLayer.wrap(bg, text, multiLine: true)
 ```
 
+To create a password field with text obfuscation just pass it’s property into the wrap method like this: 
+
+```javascript
+input = InputLayer.wrap(bg, text, password: true)
+```
 
 ## Code Guide
 New `InputLayers` can be initiated in Code, too.
@@ -79,10 +84,10 @@ This will create a functional input field, with its default placeholder. Note th
 
 ```javascript
 input = new InputLayer
-	text: "Placeholder"
+    text: "Placeholder"
 ```
 
-To style the placeholder text, you can use all of the [TextLayer](https://framer.com/docs/?utm_campaign=framer_input_benjamin#text.textlayer) properties.
+To style the placeholder text, you can use all of the [TextLayer][1] properties.
 
 ```javascript
 input.fontSize = 40
@@ -94,7 +99,7 @@ The `Input` class has its own `onValueChange` method, too. To use the text conte
 
 ```javascript
 input.onValueChange ->
-	print input.value 
+    print input.value 
 ```
 
 
@@ -102,19 +107,29 @@ input.onValueChange ->
 ---
 
 ## Examples
-- **[Input in Code](https://framer.cloud/NyGvN/)**. Create and style a single input field.
-- **[Textarea in Code](https://framer.cloud/HSNYG/)**. Create and style a multi-line input field.
-- **[Input in Design](https://framer.cloud/kyABW/)**. Wrap a single input field.
-- **[Textarea in Design](https://framer.cloud/EyGbp/)**. Wrap a multi-line input field.
-- **[Chat Example](https://framer.cloud/JdeKv/).** Type and send messages.
+- **[Input in Code][2]**. Create and style a single input field.
+- **[Textarea in Code][3]**. Create and style a multi-line input field.
+- **[Input in Design][4]**. Wrap a single input field.
+- **[Textarea in Design][5]**. Wrap a multi-line input field.
+- **[Chat Example][6].** Type and send messages.
 
 
 ## More Resources
-- [MDN Keyboard Event Reference](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-- [MDN Key Property Reference](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key).
-- [HTML DOM Events Reference](https://www.w3schools.com/jsref/dom_obj_event.asp).
+- [MDN Keyboard Event Reference][7].
+- [MDN Key Property Reference][8].
+- [HTML DOM Events Reference][9].
 ---
 
 ## Contact
 - Follow me <a href="https://twitter.com/benjaminnathan">@benjaminnathan</a>.
 - Follow <a href="https://twitter.com/framer">@framer</a>.
+
+[1]:	https://framer.com/docs/?utm_campaign=framer_input_benjamin#text.textlayer
+[2]:	https://framer.cloud/NyGvN/
+[3]:	https://framer.cloud/HSNYG/
+[4]:	https://framer.cloud/kyABW/
+[5]:	https://framer.cloud/EyGbp/
+[6]:	https://framer.cloud/JdeKv/
+[7]:	https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[8]:	https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+[9]:	https://www.w3schools.com/jsref/dom_obj_event.asp
