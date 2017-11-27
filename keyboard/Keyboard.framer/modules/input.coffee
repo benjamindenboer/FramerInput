@@ -20,7 +20,7 @@ class exports.InputLayer extends TextLayer
 			text: "Type something..."
 			fontSize: 40
 			fontWeight: 300
-			type: 'text'
+			type: "text"
 
 		if options.multiLine
 			options.padding.top ?= 20
