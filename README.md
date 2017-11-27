@@ -67,6 +67,13 @@ The `wrap` method allows you to pass in optional properties, too. For instance, 
 input = InputLayer.wrap(bg, text, multiLine: true)
 ```
 
+Or if you'd like to create any other type of input field, you can pass along the `type` parameter and set it to any given input type available:
+
+```javascript
+input = InputLayer.wrap(bg, text, type: "password")
+```
+
+[See full list of HTML input types](https://www.w3schools.com/tags/att_input_type.asp)
 
 ## Code Guide
 New `InputLayers` can be initiated in Code, too.
