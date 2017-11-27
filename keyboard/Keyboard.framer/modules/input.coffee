@@ -20,12 +20,14 @@ class exports.InputLayer extends TextLayer
 			text: "Type something..."
 			fontSize: 40
 			fontWeight: 300
+			type: 'text'
 
 		if options.multiLine
 			options.padding.top ?= 20
 
 		@_inputElement = document.createElement("input")
 		@_inputElement.style.position = "absolute"
+		@_inputElement.type = options.type
 
 		super options
 
@@ -43,7 +45,7 @@ class exports.InputLayer extends TextLayer
 			parent: @
 
 		# Text area
-		if @multiLine
+		if @multiLine or options.type is "textarea"
 			@_inputElement = document.createElement("textarea")
 
 		# Append element
